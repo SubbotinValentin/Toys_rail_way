@@ -1,0 +1,102 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block body %}
+    <!-- Контейнер слайд-шоу -->
+    <div class="slideshow-container">
+
+        <!-- Полноразмерные изображения с числом и текстом подписи -->
+        <div class="mySlides fade" style="display: block;">
+            <img src="{% static 'main/images/img1.jpg' %}" style="width:100%">
+            <div class="text">Подпись текст</div>
+        </div>
+    
+        <div class="mySlides fade">
+            <img src="{% static 'main/images/img2.jpg' %}" style="width:100%">
+            <div class="text">Подпись два</div>
+        </div>
+    
+        <div class="mySlides fade">
+            <img src="{% static 'main/images/img3.jpg' %}" style="width:100%">
+            <div class="text">Подпись три</div>
+        </div>
+
+        <div class="mySlides fade">
+            <img src="{% static 'main/images/img4.jpg' %}" style="width:100%">
+            <div class="text">Подпись три</div>
+        </div>
+    
+        <!-- Вперед и назад кнопки -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+    
+    <!-- Точки/круги -->
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+    </div>
+
+    <div class="information">
+        <h2>Information</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Deleniti aperiam atque quisquam est aspernatur, odio officiis repudiandae voluptas ut, 
+            id dolorum accusantium blanditiis inventore? Saepe iure tempora tempore non facere?</p>
+    </div>
+
+
+    <div class="row">
+        <div class="column">
+            <img src="#" alt="">
+            <div class="column_title">
+                <h2>Кольцевая</h2>
+            </div>
+            <div class="column_content">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                    Repudiandae laudantium earum, voluptas consequatur fuga modi. Magni vitae inventore ab, 
+                    expedita doloribus similique obcaecati deserunt provident natus suscipit molestias, 
+                    dolorum aperiam.С мостамиС мостами</p>
+            </div>
+        </div>
+        <div class="column">
+            <img src="#" alt="">
+            <div class="column_title">
+                <h2>Бесконечная</h2>
+            </div>
+            <div class="column_content">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                    Repudiandae laudantium earum, voluptas consequatur fuga modi. Magni vitae inventore ab, 
+                    expedita doloribus similique obcaecati deserunt provident natus suscipit molestias, 
+                    dolorum aperiam.С мостамиС мостами</p>
+            </div>
+        </div>
+        <div class="column">
+            <img src="#" alt="">
+            <div class="column_title">
+                <h2>С мостами</h2>
+            </div>
+            <div class="column_content">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                    Repudiandae laudantium earum, voluptas consequatur fuga modi. Magni vitae inventore ab, 
+                    expedita doloribus similique obcaecati deserunt provident natus suscipit molestias, 
+                    dolorum aperiam.С мостамиС мостами</p>
+            </div>
+        </div>
+        <div class="column">
+            <img src="#" alt="">
+            <div class="column_title">
+                <h2>С Инфаструктурой</h2>
+            </div>
+            <div class="column_content">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                    Repudiandae laudantium earum, voluptas consequatur fuga modi. Magni vitae inventore ab, 
+                    expedita doloribus similique obcaecati deserunt provident natus suscipit molestias, 
+                    dolorum aperiam.С мостамиС мостами</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

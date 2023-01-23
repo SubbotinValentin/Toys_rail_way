@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+
+{% block body %}
+
+    <div class="flex_nav">
+        <ul class="category_nav">
+            {% for c in category %}
+            <li><a href="{{ c.get_absolute_url }}">{{ c.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>  
+
+    <div class="flex_content">
+        {% for p in product %}
+            <div class="card">
+                <img src="{{ p.photo.url }}" alt="">
+                <div class="title">
+                    <h2>{{p.title}}</h2>
+                </div>
+                <div class="content">
+                    <p>{{p.content}}</p>
+                </div>
+                <div class="price">
+                    <p>{{p.price}}</p>
+                </div>
+            </div> 
+        {% endfor %}
+    </div> 
+
+{% endblock %}
