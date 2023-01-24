@@ -5,10 +5,14 @@
 
 {% block body %}
 
+    <h2>Каталог товаров</h2>
+
+
     <div class="flex_nav">
         <ul class="category_nav">
+            <li><a href="{% url 'catalog' %}">Все категории</a></li>
             {% for c in category %}
-            <li><a href="{{ c.get_absolute_url }}">{{ c.name }}</a></li>
+            <li><a href="/catalog/{{ c.slug }}">{{ c.name }}</a></li>
             {% endfor %}
         </ul>
     </div>  
@@ -16,17 +20,12 @@
     <div class="flex_content">
         {% for p in product %}
             <div class="card">
-                <img src="{{ p.photo.url }}" alt="">
-                <div class="title">
-                    <h2>{{p.title}}</h2>
-                </div>
-                <div class="content">
-                    <p>{{p.content}}</p>
-                </div>
-                <div class="price">
-                    <p>{{p.price}}</p>
-                </div>
-            </div> 
+                <img src="{{ p.photo.url }}" alt="Карточка товара" style="width:100%">
+                <h1>{{ p.title }}</h1>
+                <p class="card_content">{{ p.content }}</p>
+                <p class="price">цена: {{ p.price }}</p>
+                <p><a href="{{ p.get_absolute_url }}"><button>Узнать больше</button></a></p>
+            </div>
         {% endfor %}
     </div> 
 
