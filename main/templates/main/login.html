@@ -1,36 +1,44 @@
-{% extends 'main/base.html' %}
 {% load static %}
-
-{% block head %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'main/css/style_form.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <title>{{title}}</title>
-{% endblock %}
+    <link rel="stylesheet" href="{% static 'main/css/form.css' %}">
+    <title>Вход</title>
+</head>
+<body>
 
-{% block body %}
-<!-- start content -->
-<main>
-    <div class="container_form">
-        <div class="form_header">
-            <h1>Войти</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-error">{{ form.non_field_errors }}</div>
+        <div class="imgcontainer">
+            <img src="№" alt="Аватар" class="avatar">
         </div>
-        <div class="form_body">
-            <form method="post">
-                {% csrf_token %}
-                <div class="form-error">{{ form.non_field_errors }}</div>
-                {% for f in form %}
-                <p><label for="{{ f.id_for_label }}">{{f.label}}: </label> {{ f }}</p>
-                <div class="form-error">{{ f.errors }}</div>
-                {% endfor %}
-                <button type="submit">Войти</button>
-            </form>
+        
+        {% for f in form %}
+        <div class="container">
+          <label for="{{ f.id_for_label }}"><b>{{f.label}}: </b></label>
+          <input type="text" placeholder="Введите имя" name="{{ f.id_for_label }}" required>
+        {% endfor %}
+      
+          <button type="submit">Вход</button>
+          <button type="button" class="cancelbtn">Выход</button>
+
+
+          <label><input type="checkbox" checked="checked" name="remember">Запомнить меня</label>
         </div>
-    </div>
-</main>
-<!-- end content -->
-{% endblock %}
+      
+        <div class="container" style="background-color:#f1f1f1">
+          <span class="psw">Забыли <a href="#">пароль?</a></span>
+        </div>
+    </form>
+ 
+</body>
+</html>
+
+
+
+
+

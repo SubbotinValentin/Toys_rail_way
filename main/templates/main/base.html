@@ -14,19 +14,25 @@
 </head>
 <body>
     <div class="topnav">
-        <ul class="left_nav">
-            <li><a href="{% url 'home' %}">Главная</a></li>
-            <li><a href="{% url 'catalog' %}">Каталог</a></li>
-        </ul>
-        <a href="{% url 'home' %}"><img class="img_logo" src="{% static 'main/images/logo.png' %}" alt=""></a>
-        <ul class="right_nav">
-            <li><a href="#">Информация</a></li>
-            <li><a href="{% url 'korzina' %}">Корзина</a></li>
-        </ul>
-        <ul>
-            <li><a href="{% url 'login' %}">Login</a></li>
-            <li><a href="{% url 'register' %}">Register</a></li>
-        </ul>
+        <div class="left_nav">
+            <a href="{% url 'home' %}">Главная</a>
+            <a href="{% url 'catalog' %}">Каталог</a>
+        </div>
+
+        <div class="center_nav">
+            <img src="{% static 'main/images/logo.png' %}" alt="no img">
+        </div>
+
+        <div class="right_nav">
+            <a href="#">Информация</a>
+            <a href="{% url 'korzina' %}">Корзина</a>
+        </div>
+
+        <div class="account_nav">
+            <a href="{% url 'login' %}">Вход</a>
+            <a href="{% url 'register' %}">Регистрация</a>
+            
+        </div>
     </div>
 {% block body %}
 

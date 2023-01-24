@@ -1,20 +1,12 @@
-{% extends 'main/base.html' %}
-{% load static %}
-
-{% block head %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'main/css/style_form.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <title>{{title}}</title>
-{% endblock %}
-
-{% block body %}
-<!-- start content -->
-<main>
+    <title>Регистрация</title>
+</head>
+<body>
     <div class="container_form">
         <div class="form_header">
             <h1>Регистрация пользователя</h1>
@@ -29,7 +21,7 @@
                 <button type="submit">Регистрация</button>
             </form>
         </div>
-    </div>
-</main>
-<!-- end content -->
-{% endblock %}
+    </div>    
+</body>
+</html>
+
