@@ -3,18 +3,18 @@
 {% block body %}
 
 <div class="post_title">
-    <h1>{{ prod.title }}</h1>
+    <h1>{{ product.title }}</h1>
 </div>
 
 <div class="post_container">
 
     <div class="post_image">
-        <img src="{{ prod.photo.url }}">
+        <img src="{{ product.photo.url }}">
     </div>
 
     <div class="post_content">
         <h4>Описание товара: </h4>
-        <p>{{prod.content}}</p>
+        <p>{{product.content}}</p>
     </div>
 
     <div class="post_dop_content">
@@ -25,6 +25,11 @@
             <li>Доп.1:</li>
         </ul>
     </div>
+    <form action="{% url 'cart:cart_add' product.id %}" method="post">
+        {{ cart_product_form }}
+        {% csrf_token %}
+        <input type="submit" value="Add to cart">
+    </form>
 </div>
 
 {% endblock %}

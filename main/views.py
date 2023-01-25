@@ -36,7 +36,7 @@ class CatalogMain(ListView):
         return Category.objects.all()
 
 
-class CatalogList(ListView):
+class ProductList(ListView):
     model = Category
     template_name = 'main/product/catalog.html'
     context_object_name = 'category'
@@ -51,16 +51,16 @@ class CatalogList(ListView):
         return Category.objects.all()
 
 
-class ProdProduct(DetailView):
+class ProductDetail(DetailView):
     model = Product
     template_name = 'main/product/post.html'
     slug_url_kwarg = 'prod_slug'
-    context_object_name = 'prod'
+    context_object_name = 'product'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['cart_product_form'] = CartAddProductForm()
-        context['title'] = context['prod']
+        context['title'] = context['product']
         return context
 
 
