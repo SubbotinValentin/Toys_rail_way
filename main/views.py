@@ -1,8 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth import logout, login
+
+from cart.forms import CartAddProductForm
 
 from .models import *
 from .forms import *
@@ -21,7 +23,7 @@ class HomeMain(ListView):
 
 class CatalogMain(ListView):
     model = Category
-    template_name = 'main/catalog.html'
+    template_name = 'main/product/catalog.html'
     context_object_name = 'category'
     
     def get_context_data(self, **kwargs):
@@ -36,7 +38,7 @@ class CatalogMain(ListView):
 
 class CatalogList(ListView):
     model = Category
-    template_name = 'main/catalog.html'
+    template_name = 'main/product/catalog.html'
     context_object_name = 'category'
     
     def get_context_data(self, **kwargs):
@@ -49,15 +51,16 @@ class CatalogList(ListView):
         return Category.objects.all()
 
 
-class PostProduct(DetailView):
+class ProdProduct(DetailView):
     model = Product
-    template_name = 'main/post.html'
-    slug_url_kwarg = 'post_slug'
-    context_object_name = 'post'
+    template_name = 'main/product/post.html'
+    slug_url_kwarg = 'prod_slug'
+    context_object_name = 'prod'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = context['post']
+        context['cart_product_form'] = CartAddProductForm()
+        context['title'] = context['prod']
         return context
 
 

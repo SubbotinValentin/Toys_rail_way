@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+}
+
+
+h1 {
+    text-align: center;
+    padding-top: 50px;
+    background-color: #000;
+    color: #f1f1f1;
+}
+
+
+.cart {
+    display: flex;
+    flex-direction: column;
+}

@@ -23,8 +23,13 @@
                 <img src="{{ p.photo.url }}" alt="Карточка товара" style="width:100%">
                 <h1>{{ p.title }}</h1>
                 <p class="card_content">{{ p.content }}</p>
-                <p class="price">цена: {{ p.price }}</p>
+                <p class="price">${{ p.price }}</p>
                 <p><a href="{{ p.get_absolute_url }}"><button>Узнать больше</button></a></p>
+                <form action="{% url 'cart:cart_add' p.id %}" method="post">
+                    {{ cart_product_form }}
+                    {% csrf_token %}
+                    <input type="submit" value="Add to cart">
+                </form>
             </div>
         {% endfor %}
     </div> 

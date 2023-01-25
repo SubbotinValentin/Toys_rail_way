@@ -3,18 +3,18 @@
 {% block body %}
 
 <div class="post_title">
-    <h1>{{ post.title }}</h1>
+    <h1>{{ prod.title }}</h1>
 </div>
 
 <div class="post_container">
 
     <div class="post_image">
-        <img src="{{ post.photo.url }}">
+        <img src="{{ prod.photo.url }}">
     </div>
 
     <div class="post_content">
         <h4>Описание товара: </h4>
-        <p>{{post.content}}</p>
+        <p>{{prod.content}}</p>
     </div>
 
     <div class="post_dop_content">
