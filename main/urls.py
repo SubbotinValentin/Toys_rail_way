@@ -5,14 +5,9 @@ from django.conf.urls.static import static
 from .views import *
 
 
-# app_name='main'
 urlpatterns = [
     path('', HomeMain.as_view(), name='home'),
     path('catalog/', CatalogMain.as_view(), name='catalog'),
     path('catalog/<slug:cat_slug>', ProductList.as_view(), name='cat_slug'),
     path('prod/<slug:prod_slug>/', ProductDetail.as_view(), name='prod'),
-    path('register/', RegisterUser.as_view(), name='register'),
-    path('login/', LoginUser.as_view(), name='login'),
-    path('logout/', logout_user, name='logout'),
-    path('korzina/', korzina, name='korzina'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
