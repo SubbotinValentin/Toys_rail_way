@@ -137,3 +137,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Ключ для хранения корзины в сессии пользователя
 CART_SESSION_ID = 'cart'
+
+
+# при авторизации будем попадать на главную страницу.
+LOGIN_REDIRECT_URL = '/'

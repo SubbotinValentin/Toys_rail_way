@@ -1,13 +1,38 @@
-{% extends "account/base.html" %}
-{% block title %}Log-in{% endblock %}
-{% block content %}
-    <h1>Log-in</h1>
-    <p>Please, use the following form to log-in:</p>
-    <form action="." method="post">
-        {{ form.as_p }}
-        {% csrf_token %}
-        <p><input type="submit" value="Log-in"></p>
-    </form>
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block body %}
+
+  
+
+<form method="post">
+    <div class="form_header">
+        <h1>{{ title }}</h1>
+    </div>
+
+    <div class="imgcontainer">
+      <img src="#" alt="Аватар" class="avatar">
+    </div>
+  
+    {% csrf_token %}
+    <div class="form-error">{{ form.non_field_errors }}</div>
+
+    <div class="container">
+        {% for f in form %} 
+        <label for="{{ f.id_for_label }}"><b>{{f.label}}: </b>{{ f }}</label>
+        {% endfor %}
+
+        <button formacton="{% url 'account:login' %}" type="submit">Вход</button>
+        <a href="{% url 'home' %}"><button type="button" class="cancelbtn">Отменить</button></a>
+
+        <label><input type="checkbox" checked="checked" name="remember">Запомнить меня</label>
+    </div>
+  
+    <div class="container" style="background-color:#f1f1f1">
+      <span class="psw">Забыли <a href="#">пароль?</a></span>
+    </div>
+</form>
 {% endblock %}
 
 

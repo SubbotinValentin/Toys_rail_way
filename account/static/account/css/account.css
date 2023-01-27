@@ -1,0 +1,100 @@
+* {box-sizing:border-box}
+
+
+body {
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+
+h2 {
+    text-align: center;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 800;
+
+    padding-top: 30px;
+}
+
+
+.topnav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    height: 100px;
+
+    margin-top: 50px;
+}
+
+
+.topnav > div a {
+    padding: 0 20px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #f2f2f2;
+    font-family: 'Roboro Slab', serif;
+}
+
+.topnav > div a:active {
+    color: rgb(243, 8, 8);
+}
+
+.left_nav {
+    width: 45%;
+    text-align: right;
+
+}
+
+.center_nav {
+    width: 10%;
+    text-align: center;
+}
+
+.center_nav img {
+    height: 150px;
+    width: 150px;
+    position: relative;
+    z-index: 1;
+
+    border-radius: 100px;
+}
+
+
+.right_nav {
+    width: 25%;
+    text-align: left;
+}
+
+.account_nav {
+    width: 20%;
+    text-align: right;
+
+
+    padding-right: 20px;
+}
+
+
+
+.bottomnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    padding: 30px 20px;
+}
+
+.left {
+    font-size: 15px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 300;
+    color: #f1f1f1;
+}
+
+.right img {
+    height: 25px;
+    width: 25px;
+    background-color: #f1f1f1;
+    border-radius: 100px;
+}

@@ -29,11 +29,17 @@
         </div>
 
         <div class="account_nav">
-            <a href="{% url 'account:login' %}">Вход</a>
-            <a href="#">Регистрация</a>
-            
+            {% if request.user.is_authenticated %}
+            <li class="last"> {{user.username}} | 
+                <a href="{% url 'account:logout' %}">Выйти</a></li>
+            {% else %}
+            <li class="last"><a href="{% url 'account:register' %}">Регистрация</a> | 
+                <a href="{% url 'account:login' %}">Войти</a></li>
+            {% endif %}
         </div>
     </div>
+
+
 {% block body %}
 
 
