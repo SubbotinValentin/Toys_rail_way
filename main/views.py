@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth import authenticate, login
@@ -61,3 +61,7 @@ class ProductDetail(DetailView):
         context['cart_product_form'] = CartAddProductForm()
         context['title'] = context['product']
         return context
+
+
+def about(request):
+    return render(request, 'main/about.html')

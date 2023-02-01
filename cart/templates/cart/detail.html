@@ -2,16 +2,16 @@
 {% load static %}
 
 {% block body %}
-    <h1>Your shopping cart</h1>
+    <h1 class="korzina-title">Корзина твоих товаров</h1>
     <table class="cart">
         <thead>
         <tr>
-            <th>Image</th>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Remove</th>
-            <th>Unit price</th>
-            <th>Price</th>
+            <th>Фото</th>
+            <th>Товар</th>
+            <th>Количество</th>
+            <th>Удалить</th>
+            <th>Цена шт.</th>
+            <th>Общая стоимость заказа</th>
         </tr>
         </thead>
         <tbody>
@@ -20,26 +20,26 @@
                 <tr>
                     <td>
                         <a href="{{ product.get_absolute_url }}">
-                            <img src="{{ product.image.url }}">
+                            <img class="img-card"src="{{ product.photo.url }}">
                         </a>
                     </td>
-                    <td>{{ product.name }}</td>
+                    <td>{{ product.title }}</td>
                     <td>{{ item.quantity }}</td>
-                    <td><a href="{% url 'cart:cart_remove' product.id %}">Remove</a></td>
+                    <td><a href="{% url 'cart:cart_remove' product.id %}">Удалить</a></td>
                     <td class="num">${{ item.price }}</td>
                     <td class="num">${{ item.total_price }}</td>
                 </tr>
             {% endwith %}
         {% endfor %}
         <tr class="total">
-            <td>Total</td>
+            <td>Общая</td>
             <td colspan="4"></td>
             <td class="num">${{ cart.get_total_price }}</td>
         </tr>
         </tbody>
     </table>
     <p class="text-right">
-        <a href="{% url 'catalog' %}" class="button light">Continue shopping</a>
-        <a href="#" class="button">Checkout</a>
+        <a href="{% url 'catalog' %}" class="button light">Продолжить покупки</a>
+        <a href="#" class="button">Купить</a>
     </p>
 {% endblock %}
